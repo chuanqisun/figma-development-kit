@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>OAuth2 Demo</title>
+</head>
+
+<body>
+  <button class="js-login-button">login</button>
+  token=<output class="js-token"></output>
+  <script type="module" crossorigin>
+  import { FigmaApi } from '../dist/figma-api.js';
+
+  const fiamgaApi = new FigmaApi({
+    clientId: 'd6HPfFabvUgC73Y9MSsRy6',
+    clientSecrete: 'U7zKxVvYBqoOJD9tH7pFPUEveqjK7X',
+    redirectUri: 'http://localhost:5500/dist/callback.html',
+  });
+
+  document.querySelector('.js-login-button').onclick = () => fiamgaApi.getOAuth2Token().then(token => {
+    document.querySelector('.js-token').textContent = token;
+  });
+  </script>
+</body>
+</html>
