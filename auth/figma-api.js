@@ -15,7 +15,7 @@ export class FigmaApi {
   async getOAuth2Token() {
     /* if a token exists and hasn't expired, re-use it */
     const existingTokenData = JSON.parse(localStorage.getItem(storageKeyForAccessTokenData));
-    if (existingTokenData && existingTokenData.expireTimeInEpoch > Date.now()) {
+    if (existingTokenData && existingTokenData.expireOnEpoch > Date.now()) {
       return existingTokenData.token;
     }
   
@@ -56,8 +56,8 @@ export class FigmaApi {
     }).then(response => response.json())
     .then(responseObject => {
       const {access_token, expires_in} = responseObject;
-      const expireTimeInEpoch = Date.now() + expires_in;
-      return {token: access_token, expireTimeInEpoch};
+      const expireOnEpoch = Date.now() + expires_in;
+      return {token: access_token, expireOnEpoch};
     });
   }
   

@@ -7,5 +7,5 @@ const fiamgaApi = new FigmaApi({
 });
 
 document.querySelector('.js-login-button').onclick = () => fiamgaApi.getOAuth2Token().then(token => {
-  console.dir(token);
+  document.querySelector('.js-token').textContent = token;
 });
