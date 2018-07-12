@@ -1,7 +1,8 @@
 {
   "name": "figma-development-kit",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A set of tools that augment the Figma API",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chuanqisun/figma-developer-kit.git"
