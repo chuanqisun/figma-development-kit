@@ -16,8 +16,7 @@
     const fiamgaApi = new fdk.FigmaApi({
       clientId: 'd6HPfFabvUgC73Y9MSsRy6',
       clientSecrete: 'U7zKxVvYBqoOJD9tH7pFPUEveqjK7X',
-      /* relative URL is used here so this file can be served from both a local dev server or from the github domain */
-      redirectUri: new URL('../dist/callback.html', location.href).href,
+      redirectUri: 'https://chuanqisun.github.io/figma-development-kit/dist/callback.html',
     });
 
     document.querySelector('.js-login-button').onclick = () => fiamgaApi.getOAuth2Token().then(token => {
