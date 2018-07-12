@@ -13,27 +13,23 @@
   <output class="js-token"></output>
 
   <script>
-  /**
-   * customize these to your app
-   * 
-   * redirectUri can be an absolute url that points to wherever your callback.html lives
-   * relative URL is used here so this file can be served from both a local dev server or as a github page
-   */
-  const fiamgaApi = new fdk.FigmaApi({
-    clientId: 'd6HPfFabvUgC73Y9MSsRy6',
-    clientSecrete: 'U7zKxVvYBqoOJD9tH7pFPUEveqjK7X',
-    redirectUri: new URL('../dist/callback.html', location.href).href,
-  });
+    const fiamgaApi = new fdk.FigmaApi({
+      clientId: 'd6HPfFabvUgC73Y9MSsRy6',
+      clientSecrete: 'U7zKxVvYBqoOJD9tH7pFPUEveqjK7X',
+      /* relative URL is used here so this file can be served from both a local dev server or from the github domain */
+      redirectUri: new URL('../dist/callback.html', location.href).href,
+    });
 
-  document.querySelector('.js-login-button').onclick = () => fiamgaApi.getOAuth2Token().then(token => {
-    document.querySelector('.js-token').textContent = token;
-  });
+    document.querySelector('.js-login-button').onclick = () => fiamgaApi.getOAuth2Token().then(token => {
+      /* display the token in the UI */
+      document.querySelector('.js-token').textContent = token;
+    });
 
-  document.querySelector('.js-reset-button').onclick = () => {
-    /* reset local storage will force user to re-authroize */
-    localStorage.clear();
-    document.querySelector('.js-token').textContent = '';
-  }
+    document.querySelector('.js-reset-button').onclick = () => {
+      /* reset local storage will force user to re-authroize */
+      localStorage.clear();
+      document.querySelector('.js-token').textContent = '';
+    }
   </script>
 </body>
 </html>

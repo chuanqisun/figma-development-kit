@@ -2,7 +2,7 @@
 [demo](https://chuanqisun.github.io/figma-development-kit/demo/auth-demo.html) | [src](https://github.com/chuanqisun/figma-development-kit/blob/master/demo/auth-demo.html)
 
 ### Quick start
-Download [`callback.html`](https://raw.githubusercontent.com/chuanqisun/figma-development-kit/master/dist/callback.html) and add it to your project. Make sure you add the url of the callback file to your [Figma developer settings page](https://www.figma.com/developers/apps). Learn more by reading the  [Figma OAuth2 setup guide](https://www.figma.com/developers/docs#auth-oauth)
+Download [`callback.html`](https://raw.githubusercontent.com/chuanqisun/figma-development-kit/master/dist/callback.html) and add it to your project. Make sure you add the url of the callback file to your [Figma developer settings page](https://www.figma.com/developers/apps). Learn more by reading the  [Figma OAuth2 setup guide](https://www.figma.com/developers/docs#auth-oauth).
 
 Directly use in browser
 ```html
