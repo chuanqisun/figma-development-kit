@@ -1,0 +1,17 @@
+{
+  "name": "figma-development-kit",
+  "version": "1.0.0",
+  "description": "Tools that help developers leverage Figma API",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chuanqisun/figma-developer-kit.git"
+  },
+  "keywords": ["Figma"],
+  "author": "Chuanqi Sun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chuanqisun/figma-developer-kit/issues"
+  },
+  "homepage": "https://github.com/chuanqisun/figma-developer-kit#readme"
+}
