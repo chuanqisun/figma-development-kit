@@ -1,7 +1,7 @@
 {
   "name": "figma-development-kit",
-  "version": "1.0.2",
-  "description": "Speed up design-to-code with Figma API",
+  "version": "1.0.3",
+  "description": "A set of tools that augment the Figma API",
   "main": "index.js",
   "repository": {
     "type": "git",
