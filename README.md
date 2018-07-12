@@ -1,4 +1,4 @@
-#Figma Development Kit (FDK)
+# Figma Development Kit (FDK)
 
 Tools that help developers to build apps with Figma API
 
