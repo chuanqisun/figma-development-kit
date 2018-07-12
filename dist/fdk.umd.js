@@ -19,7 +19,7 @@
 
     async getOAuth2Token() {
       /* if a token exists and hasn't expired, re-use it */
-      const existingTokenData = JSON.parse(localStorage.getItem(storageKeyForAccessTokenData));
+      const existingTokenData = JSON.parse(window.localStorage.getItem(storageKeyForAccessTokenData));
       if (existingTokenData && existingTokenData.expireOnEpoch > Date.now()) {
         return existingTokenData.token;
       }
@@ -42,9 +42,9 @@
         let storageEventHandler = null;
         window.addEventListener('storage', storageEventHandler = event => {
           if (event.key === storageKeyForAuthorizationCodeData) {
-            const {code, state} = JSON.parse(localStorage.getItem(storageKeyForAuthorizationCodeData));
+            const {code, state} = JSON.parse(window.localStorage.getItem(storageKeyForAuthorizationCodeData));
             window.removeEventListener('storage', storageEventHandler);
-            localStorage.removeItem(storageKeyForAuthorizationCodeData);
+            window.localStorage.removeItem(storageKeyForAuthorizationCodeData);
             if (state !== trueState) {
               reject('STATE_MISMATCH');
             } else {
@@ -67,7 +67,7 @@
     }
     
     storeAccessTokenData(accessTokenData) {
-      localStorage.setItem(storageKeyForAccessTokenData, JSON.stringify(accessTokenData));
+      window.localStorage.setItem(storageKeyForAccessTokenData, JSON.stringify(accessTokenData));
       return accessTokenData.token;
     }
   }
