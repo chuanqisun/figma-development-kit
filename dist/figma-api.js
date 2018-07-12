@@ -61,7 +61,7 @@ export class FigmaApi {
     });
   }
   
-  async storeAccessTokenData(accessTokenData) {
+  storeAccessTokenData(accessTokenData) {
     localStorage.setItem(storageKeyForAccessTokenData, JSON.stringify(accessTokenData));
     return accessTokenData.token;
   }
