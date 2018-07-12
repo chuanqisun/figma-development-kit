@@ -15,7 +15,7 @@
   const fiamgaApi = new FigmaApi({
     clientId: 'd6HPfFabvUgC73Y9MSsRy6',
     clientSecrete: 'U7zKxVvYBqoOJD9tH7pFPUEveqjK7X',
-    redirectUri: `${location.origin}/dist/callback.html`,
+    redirectUri: new URL('../dist/callback.html', location.href).href, /* point this to wherever your callback.html lives */
   });
 
   document.querySelector('.js-login-button').onclick = () => fiamgaApi.getOAuth2Token().then(token => {
