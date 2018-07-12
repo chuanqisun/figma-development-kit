@@ -6,6 +6,11 @@
     "type": "git",
     "url": "git+https://github.com/chuanqisun/figma-developer-kit.git"
   },
+  "scripts": {
+    "build": "npm run build:umd && npm run build:esm",
+    "build:umd": "rollup .\\src\\index.js --file .\\dist\\fdk.umd.js --format umd --name \"fdk\"",
+    "build:esm": "rollup .\\src\\index.js --file .\\dist\\fdk.esm.js --format esm"
+  },
   "keywords": ["Figma"],
   "author": "Chuanqi Sun",
   "license": "MIT",
