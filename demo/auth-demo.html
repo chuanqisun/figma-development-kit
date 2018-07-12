@@ -8,20 +8,30 @@
 
 <body>
   <button class="js-login-button">login</button>
+  <button class="js-reset-button">reset cache</button>
   <output class="js-token"></output>
 
   <script type="module" crossorigin>
   import { FigmaApi } from '../dist/figma-api.js';
 
+  /**
+   * customize these to your app
+   * 
+   * redirectUri can be an absolute url that points to wherever your callback.html lives
+   * relative URL is used here so this file can be served from both a local dev server or as a github page
+   */
   const fiamgaApi = new FigmaApi({
     clientId: 'd6HPfFabvUgC73Y9MSsRy6',
     clientSecrete: 'U7zKxVvYBqoOJD9tH7pFPUEveqjK7X',
-    redirectUri: new URL('../dist/callback.html', location.href).href, /* point this to wherever your callback.html lives */
+    redirectUri: new URL('../dist/callback.html', location.href).href,
   });
 
   document.querySelector('.js-login-button').onclick = () => fiamgaApi.getOAuth2Token().then(token => {
     document.querySelector('.js-token').textContent = token;
   });
+
+  /* reset local storage will force user to re-authroize */
+  document.querySelector('.js-reset-button').onclick = () => localStorage.clear();
   </script>
 </body>
 </html>
