@@ -11,26 +11,27 @@ export async function getOAuth2Token() {
   // TODO Implement token reuse
 
   /* if no token exists, request access code first */
-  const state = 'abc'; // TODO randomize
+  const state = Math.random().toString(); // TODO randomize
   
-  getAuthorizationCode(state)
-  .then(code => getAccessTokenData(code));
-  // .then(accessTokenData => storeAccessTokenData(accessTokenData));
+  const tokenPromise = getAuthorizationCode(state)
+  .then(code => getAccessTokenData(code))
+  .then(accessTokenData => storeAccessTokenData(accessTokenData))
+  .catch(error => console.error(error));
   
   window.open(`${authorizationEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=file_read&state=${state}&response_type=code`);
 
-  return;
+  return tokenPromise;
 }
 
-async function getAuthorizationCode(state) {
+async function getAuthorizationCode(trueState) {
   return new Promise((resolve, reject) => {
     let storageEventHandler = null;
     window.addEventListener('storage', storageEventHandler = event => {
       if (event.key === storageKeyForAuthorizationCodeData) {
-        const {code, state: returnedState} = JSON.parse(localStorage.getItem(storageKeyForAuthorizationCodeData));
+        const {code, state} = JSON.parse(localStorage.getItem(storageKeyForAuthorizationCodeData));
         window.removeEventListener('storage', storageEventHandler);
         localStorage.removeItem(storageKeyForAuthorizationCodeData);
-        if (state !== returnedState) {
+        if (state !== trueState) {
           reject('STATE_MISMATCH');
         } else {
           resolve(code);
@@ -51,7 +52,7 @@ async function getAccessTokenData(authorizationCode) {
   });
 }
 
-// async function storeAccessTokenData(accessTokenData) {
-//   localStorage.setItem(storageKeyForAccessTokenData, JSON.stringify(accessTokenData));
-//   return accessTokenData.token;
-// }
+async function storeAccessTokenData(accessTokenData) {
+  localStorage.setItem(storageKeyForAccessTokenData, JSON.stringify(accessTokenData));
+  return accessTokenData.token;
+}
