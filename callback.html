@@ -1,0 +1,20 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>authorizing access to Figma API…</title>
+</head>
+
+<body>
+  <script>
+    const parsedUrl = new URL(window.location.href);
+    const code = parsedUrl.searchParams.get('code');
+    const state = parsedUrl.searchParams.get('state');
+    const figmaAuthorizationCodeData = JSON.stringify({code, state});
+    
+    localStorage.setItem('figma-authorization-code-data', figmaAuthorizationCodeData);
+    // window.close();
+  </script>
+</body>
+</html>
