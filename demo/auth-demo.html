@@ -30,8 +30,11 @@
     document.querySelector('.js-token').textContent = token;
   });
 
-  /* reset local storage will force user to re-authroize */
-  document.querySelector('.js-reset-button').onclick = () => localStorage.clear();
+  document.querySelector('.js-reset-button').onclick = () => {
+    /* reset local storage will force user to re-authroize */
+    localStorage.clear();
+    document.querySelector('.js-token').textContent = '';
+  }
   </script>
 </body>
 </html>
