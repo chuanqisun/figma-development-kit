@@ -13,13 +13,13 @@
   <output class="js-token"></output>
 
   <script>
-    const fiamgaApi = new fdk.FigmaApi({
+    const figmaApi = new fdk.FigmaApi({
       clientId: 'd6HPfFabvUgC73Y9MSsRy6',
       clientSecrete: 'U7zKxVvYBqoOJD9tH7pFPUEveqjK7X',
       redirectUri: 'https://chuanqisun.github.io/figma-development-kit/dist/callback.html',
     });
 
-    document.querySelector('.js-login-button').onclick = () => fiamgaApi.getOAuth2Token().then(token => {
+    document.querySelector('.js-login-button').onclick = () => figmaApi.getOAuth2Token().then(token => {
       /* display the token in the UI */
       document.querySelector('.js-token').textContent = token;
     });

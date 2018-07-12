@@ -9,14 +9,14 @@ Directly use in browser
 <script src="https://unpkg.com/figma-development-kit@^1/dist/fdk.umd.js"></script>
 ```
 ```js
-const fiamgaApi = new fdk.FigmaApi({
+const figmaApi = new fdk.FigmaApi({
   clientId: '<FIGMA_CLIENT_ID>',
   clientSecrete: '<FIGMA_CLIENT_SECRETE>',
   /* e.g. http://localhost:5000/callback.html or https://www.my-awesome-project.com/callback.html */
   redirectUri: '<PATH_TO_CALLBACK_FILE>', 
 });
 
-fiamgaApi.getOAuth2Token().then(token => {
+figmaApi.getOAuth2Token().then(token => {
   console.log(token);
 });
 ```
@@ -30,13 +30,13 @@ npm install --save figma-development-kit
 ```js
 import { FigmaApi } from 'figma-development-kit';
 
-const fiamgaApi = new FigmaApi({
+const figmaApi = new FigmaApi({
   clientId: '<FIGMA_CLIENT_ID>',
   clientSecrete: '<FIGMA_CLIENT_SECRETE>',
   redirectUri: '<PATH_TO_CALLBACK_FILE>',
 });
 
-fiamgaApi.getOAuth2Token().then(token => {
+figmaApi.getOAuth2Token().then(token => {
   console.log(token);
 });
 ```
