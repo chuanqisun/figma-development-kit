@@ -10,12 +10,11 @@
   const accessTokenEndpoint = 'https://www.figma.com/api/oauth/token';
 
   class FigmaApi {
-    constructor(config) {
-      if(!config) throw Error('config is required');
-      if(!config.clientId) throw Error('clientId is required');
-      if(!config.clientSecrete) throw Error('clientSecrete is required');
-      if(!config.redirectUri) throw Error('redirectUri is required');
-      this.config = config;
+    constructor({clientId, clientSecrete, redirectUri}) {
+      if(!clientId) throw Error('clientId is required');
+      if(!clientSecrete) throw Error('clientSecrete is required');
+      if(!redirectUri) throw Error('redirectUri is required');
+      this.config = {clientId, clientSecrete, redirectUri};
     }
 
     async getOAuth2Token() {
