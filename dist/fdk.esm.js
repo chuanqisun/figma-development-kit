@@ -36,7 +36,7 @@ class FigmaApi {
       let storageEventHandler = null;
       window.addEventListener('storage', storageEventHandler = event => {
         if (event.key === storageKeyForAuthorizationCodeData) {
-          const {code, state} = JSON.parse(window.localStorage.getItem(storageKeyForAuthorizationCodeData));
+          const {code, state} = JSON.parse(event.newValue);
           window.removeEventListener('storage', storageEventHandler);
           window.localStorage.removeItem(storageKeyForAuthorizationCodeData);
           if (state !== trueState) {

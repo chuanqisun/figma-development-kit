@@ -1,6 +1,6 @@
 {
   "name": "figma-development-kit",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "A set of tools that augment the Figma API",
   "main": "index.js",
   "repository": {
