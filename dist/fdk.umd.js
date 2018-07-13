@@ -61,7 +61,7 @@
       }).then(response => response.json())
       .then(responseObject => {
         const {access_token, expires_in} = responseObject;
-        const expireOnEpoch = Date.now() + expires_in;
+        const expireOnEpoch = Date.now() + expires_in * 1000;
         return {token: access_token, expireOnEpoch};
       });
     }
