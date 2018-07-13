@@ -1,6 +1,6 @@
 {
   "name": "figma-development-kit",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "A set of tools that augment the Figma API",
   "main": "index.js",
   "repository": {
@@ -12,7 +12,9 @@
     "build:umd": "rollup .\\src\\index.js --file .\\dist\\fdk.umd.js --format umd --name \"fdk\"",
     "build:esm": "rollup .\\src\\index.js --file .\\dist\\fdk.esm.js --format esm"
   },
-  "keywords": ["Figma"],
+  "keywords": [
+    "Figma"
+  ],
   "author": "Chuanqi Sun",
   "license": "MIT",
   "bugs": {
