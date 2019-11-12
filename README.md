@@ -22,8 +22,7 @@ figmaApi.getOAuth2Token().then(token => {
 ```
 
 Import as an ES6 module
-```js
-/* in source code */
+```shell
 npm install --save figma-development-kit
 ```
 
